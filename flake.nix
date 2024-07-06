@@ -12,6 +12,11 @@
         path = ./lang/cpp;
         description = "Standard C++ environment";
       };
+
+      "python" = {
+        path = ./lang/python;
+        description = "Standard Python environment";
+      };
     };
   };
 }
