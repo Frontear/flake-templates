@@ -38,3 +38,5 @@ Finally, `cd` into the directory, run `nix develop` and enjoy having all the too
 
 ## License
 The templates found in this repository are subject to the GNU GPLv3 license. I encourage you all to post your changes and usages of these templates online, to share and spread the knowledge.
+
+Please note that this license does not apply to your code, such as what is found in `src/`.
