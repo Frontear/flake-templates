@@ -7,6 +7,11 @@
         path = ./lang/c;
         description = "Standard C environment";
       };
+
+      "cpp" = {
+        path = ./lang/cpp;
+        description = "Standard C++ environment";
+      };
     };
   };
 }
