@@ -1,6 +1,8 @@
 {
-  stdenv,
   lib,
+  stdenv,
+
+  gnumake,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "app";
@@ -8,15 +10,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = lib.cleanSource ../.;
 
-  buildPhase = ''
-    $CC -o $pname src/main.c
-  '';
-
-  installPhase = ''
-    mkdir -p $out/bin
-
-    install -Dm755 $pname $out/bin
-  '';
+  nativeBuildInputs = [ gnumake ];
 
   meta = with lib; {
     description = "...";
