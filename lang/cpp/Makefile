@@ -10,17 +10,15 @@ includedir ?= ${prefix}/include
 
 CXXFLAGS ?= -g
 
-.PHONY: all build clean install uninstall
+.PHONY: all clean install uninstall
 
-all: install
-
-build:
+all:
 	@${CXX} -o ${pname} ${CXXFLAGS} src/main.cc
 
 clean:
 	@rm -f ${pname}
 
-install: build
+install: all 
 	@mkdir -p ${bindir}
 
 	@install -Dm755 ${pname} ${bindir}

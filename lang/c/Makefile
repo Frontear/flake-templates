@@ -10,17 +10,15 @@ includedir ?= ${prefix}/include
 
 CFLAGS ?= -g
 
-.PHONY: all build clean install uninstall
+.PHONY: all clean install uninstall
 
-all: install
-
-build:
+all:
 	@${CC} -o ${pname} ${CFLAGS} src/main.c
 
 clean:
 	@rm -f ${pname}
 
-install: build
+install: all
 	@mkdir -p ${bindir}
 
 	@install -Dm755 ${pname} ${bindir}
