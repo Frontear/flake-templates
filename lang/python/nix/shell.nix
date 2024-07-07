@@ -6,10 +6,8 @@ let
   };
 in
 {
-  pkgs ? import nixpkgs {}
+  pkgs ? import nixpkgs {},
 }:
 pkgs.mkShell {
-  packages = with pkgs; [
-    (python3.withPackages (p: []))
-  ];
+  inputsFrom = [ (pkgs.python3Packages.callPackage ./package.nix { }) ];
 }
