@@ -9,6 +9,8 @@ buildPythonApplication {
 
   src = lib.cleanSource ../.;
 
+  propagatedBuildInputs = [];
+
   pyproject = true;
   build-system = [
     setuptools
