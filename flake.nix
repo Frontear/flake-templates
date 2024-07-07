@@ -1,22 +1,16 @@
 {
   description = "Templates for a development workflow on Nix";
 
-  outputs = { ... }: {
-    templates = {
-      "c" = {
-        path = ./lang/c;
-        description = "Standard C environment";
-      };
+  inputs.nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
 
-      "cpp" = {
-        path = ./lang/cpp;
-        description = "Standard C++ environment";
-      };
-
-      "python" = {
-        path = ./lang/python;
-        description = "Standard Python environment";
-      };
-    };
+  outputs = { self, nixpkgs-lib, ... }:
+  let
+    lib = ((import ./nix { inherit (nixpkgs-lib) lib; }).lib);
+  in {
+    templates = lib.mkTemplates [
+      "c"
+      "cpp"
+      "python"
+    ] self;
   };
 }
